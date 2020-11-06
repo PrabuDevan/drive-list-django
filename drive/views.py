@@ -27,7 +27,7 @@ def get_next_page(request):
         url = 'https://content.googleapis.com/drive/v3/files'
         params = {
             'pageSize': 10,
-            'pageToken': body["nextPageToken"],
+            'pageToken': body["pageToken"],
             'fields': "nextPageToken, files(id, name, shared, size, createdTime, modifiedTime)",
             'key': 'AIzaSyCZpskkk3ggfa7TRxf4kFC5BcvPaueMAGY'
         }
