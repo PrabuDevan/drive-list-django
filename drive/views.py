@@ -6,7 +6,6 @@ import requests
 def get_drive_files(request):
     if request.method == 'POST':
         body = json.loads(request.body)
-        print(body)
         url = 'https://content.googleapis.com/drive/v3/files'
         params = {
             'pageSize': 10,
@@ -16,14 +15,12 @@ def get_drive_files(request):
         headers = {'Authorization': f'Bearer {body["access_token"]}'}
         r = requests.get(url, params=params, headers=headers)
         files = r.json()
-        print(files)
         return JsonResponse(files, safe=False)
 
 
 def get_next_page(request):
     if request.method == 'POST':
         body = json.loads(request.body)
-        print(body)
         url = 'https://content.googleapis.com/drive/v3/files'
         params = {
             'pageSize': 10,
@@ -34,5 +31,4 @@ def get_next_page(request):
         headers = {'Authorization': f'Bearer {body["access_token"]}'}
         r = requests.get(url, params=params, headers=headers)
         files = r.json()
-        print(files)
         return JsonResponse(files, safe=False)
